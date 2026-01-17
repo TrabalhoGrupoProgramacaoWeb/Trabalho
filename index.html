@@ -6,91 +6,82 @@
     <title>Hotel Management System 2025</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Header -->
-     <div class="header_principal">
-
-            <div class="header_cima"> <!-- coisas aleatorioas -->
-                <h1>(+351) 123 456 789 ● Chamada para rede Fixa Nacional | email@gmail.com</h1>
-            </div>
-
-            <div class="header_baixo_logo"><!-- logo -->
-                <img src="IMG/LOGO Branco.png" alt="Hotel Logo" class="logo">
-            </div>
-
-            <div class="header_baixo_menu"><!-- menu -->
-                <div class="nav-tabs">
-                    <button class="nav-btn active" onclick="switchTab('quartos')">Quartos</button>
-                    <button class="nav-btn" onclick="switchTab('reservas')">Reservas</button>
-                    <button class="nav-btn" onclick="switchTab('dashboard')">Dashboard</button>
-                </div>
-            </div>
-        </div>
-
-    
-    
-
-    <!-- Payment Modal -->
-    <div class="modal" id="paymentModal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="cancelPayment()">✕</button>
-            <div class="modal-header">
-                <h2>💳 Pagamento Seguro</h2>
-                <p>Confirme seus dados de pagamento</p>
-            </div>
-            <div class="modal-body">
-                <div class="summary-box">
-                    <h3>Resumo da Reserva</h3>
-                    <div id="reservaSummary"></div>
-                </div>
-
-                <div class="security-notice">
-                    🔒 Pagamento 100% seguro e criptografado
-                </div>
-
-                <div class="form-group">
-                    <label>Número do Cartão</label>
-                    <input type="text" id="numeroCartao" placeholder="1234 5678 9012 3456" maxlength="19" 
-                           oninput="formatarCartao(this)">
-                </div>
-
-                <div class="form-group">
-                    <label>Nome no Cartão</label>
-                    <input type="text" id="nomeCartao" placeholder="NOME COMO ESTÁ NO CARTÃO"
-                           oninput="this.value = this.value.toUpperCase()">
-                </div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                    <div class="form-group">
-                        <label>Validade</label>
-                        <input type="text" id="validade" placeholder="MM/AA" maxlength="5"
-                               oninput="formatarValidade(this)">
-                    </div>
-                    <div class="form-group">
-                        <label>CVV</label>
-                        <input type="text" id="cvv" placeholder="123" maxlength="3"
-                               oninput="this.value = this.value.replace(/\D/g, '')">
-                    </div>
-                </div>
-
-                <div class="modal-buttons">
-                    <button class="btn btn-secondary" onclick="cancelPayment()">Cancelar</button>
-                    <button class="btn btn-success" onclick="processarPagamento()">🔒 Pagar</button>
-                </div>
-            </div>
+<header class="header_principal">
+    <div class="header_cima">
+        <h1>(+351) 123 456 789 | email@gmail.com</h1>
+    </div>
+    <div class="header_baixo_logo">
+        <img src="IMG/LOGO Branco.png" alt="Hotel Logo" class="logo">
+    </div>
+    <div class="header_baixo_menu original">
+        <div class="nav-tabs">
+            <a href="#principal" class="nav-btn">Página Principal</a>
+            <a href="#quartos" class="nav-btn">Quartos</a>
+            <a href="#reservas" class="nav-btn">Reservas</a>
+            <a href="#dashboard" class="nav-btn">Dashboard</a>
         </div>
     </div>
+</header>
 
-    <!-- Content -->
+<!-- Clone do menu sticky -->
+<div class="header_baixo_menu clone">
+    <div class="nav-tabs">
+        <a href="#principal" class="nav-btn">Página Principal</a>
+        <a href="#quartos" class="nav-btn">Quartos</a>
+        <a href="#reservas" class="nav-btn">Reservas</a>
+        <a href="#dashboard" class="nav-btn">Dashboard</a>
+    </div>
+</div>
+
+</header>
+
+<!-- Navbar clone, invisível inicialmente -->
+<div class="header_baixo_menu clone">
+    <div class="nav-tabs">
+        <a href="#principal" class="nav-btn">Página Principal</a>
+        <a href="#quartos" class="nav-btn">Quartos</a>
+        <a href="#reservas" class="nav-btn">Reservas</a>
+        <a href="#dashboard" class="nav-btn">Dashboard</a>
+    </div>
+</div>
+
+<body>
     <div class="container">
-        <!-- Quartos Tab -->
-        <div class="tab-content active" id="tab-quartos">
+        <!-- Página Principal -->
+        <div class="tab-principal" id="principal">
+            <div class="tab-content">
+                <!-- Lado esquerdo: texto -->
+                <div class="tab-left">
+                    <h1>Hotel Ectecephala</h1>
+                    <p>O Hotel Ectecephala é um sítio fixe para ficar hospedado. Tem quartos, camas e algumas janelas. Podes dormir à noite e acordar de manhã. O pequeno-almoço tem pão, café e às vezes fruta. Há umas cadeiras no hall e um sítio para ver televisão.</p>
+
+                    <p>As pessoas que trabalham no hotel são simpáticas, dizem bom dia e ajudam quando pedes. Sempre que precisas de alguma coisa, eles tentam resolver, mesmo que seja só para dar uma toalha extra ou indicar um bom sítio para comer. O ambiente é calmo e agradável, e o barulho da cidade não chega muito aos quartos.</p>
+
+                    <p>Dá para passear pela cidade e depois voltar ao hotel para descansar. Há sítios perto para caminhar, lojas e alguns cafés onde podes sentar-te e apreciar a vista. Os corredores do hotel são limpos e têm quadros e algumas plantas para decorar, tornando o espaço mais acolhedor.</p>
+
+                    <p>No geral, o Ectecephala é um hotel jeitoso, com quartos e casas de banho, e consegues dormir à vontade. Mesmo para quem gosta de uma estadia simples e tranquila, o hotel cumpre bem. É um lugar prático, sem complicações, ideal para quem quer explorar a cidade durante o dia e ter um sítio confortável para descansar à noite.</p>
+
+                </div>
+    
+                <!-- Lado direito: contacto -->
+                <div class="tab-right">
+                    <h2>Contacte-nos</h2>
+                    <p>📞 Telefone: (+351) 123 456 789</p>
+                    <p>✉️ Email: email@gmail.com</p>
+                    <p>📍 Morada: Rua do Hotel, 123, Cidade</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quartos -->
+        <div id="quartos">
             <h1>Lista de Quartos</h1>
             <div class="grid grid-cols-3" id="quartosGrid"></div>
         </div>
 
-        <!-- Reservas Tab -->
-        <div class="tab-content" id="tab-reservas">
+        <!-- Reservas -->
+        <div id="reservas">
+            <h1>Reservas</h1>
             <div class="grid grid-cols-2">
                 <!-- Nova Reserva -->
                 <div class="card">
@@ -136,12 +127,10 @@
             </div>
         </div>
 
-        <!-- Dashboard Tab -->
-        <div class="tab-content" id="tab-dashboard">
+        <!-- Dashboard -->
+        <div id="dashboard">
             <h1>Dashboard de Gestão</h1>
-            
             <div class="stats-grid" id="statsGrid"></div>
-
             <div class="chart-container">
                 <h3 class="chart-title">📈 Faturação Mensal 2025</h3>
                 <div class="chart" id="faturacaoChart"></div>
@@ -150,187 +139,78 @@
     </div>
 
     <script>
-        // Dados
+        // Dados de exemplo para os quartos
         const quartos = [
             { id: 1, numero: '101', tipo: 'Single', preco: 50, imagem: '🛏️' },
             { id: 2, numero: '102', tipo: 'Duplo', preco: 80, imagem: '🛏️🛏️' },
             { id: 3, numero: '103', tipo: 'Suite', preco: 150, imagem: '👑' },
-            { id: 4, numero: '201', tipo: 'Single', preco: 50, imagem: '🛏️' },
-            { id: 5, numero: '202', tipo: 'Duplo', preco: 80, imagem: '🛏️🛏️' },
-            { id: 6, numero: '203', tipo: 'Suite', preco: 150, imagem: '👑' },
+            { id: 4, numero: '104', tipo: 'Single', preco: 50, imagem: '🛏️' },
+            { id: 5, numero: '105', tipo: 'Duplo', preco: 80, imagem: '🛏️🛏️' },
+            { id: 6, numero: '106', tipo: 'Suite', preco: 150, imagem: '👑' }
         ];
-
-        let reservas = [];
+    
         let reservaTemp = null;
-        const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-
-        // Funções
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(`tab-${tabName}`).classList.add('active');
-            event.target.classList.add('active');
-            
-            if (tabName === 'quartos') renderQuartos();
-            else if (tabName === 'reservas') renderReservas();
-            else if (tabName === 'dashboard') renderDashboard();
-        }
-
+    
+        // Função para calcular o número de dias entre duas datas
         function calcularDias(checkIn, checkOut) {
             const date1 = new Date(checkIn);
             const date2 = new Date(checkOut);
+    
+            if (isNaN(date1) || isNaN(date2)) {
+                alert('Datas inválidas!');
+                return 0;
+            }
+    
             const diff = Math.abs(date2 - date1);
             return Math.ceil(diff / (1000 * 60 * 60 * 24));
         }
-
-        function formatarCartao(input) {
-            let valor = input.value.replace(/\D/g, '');
-            let grupos = [];
-            for (let i = 0; i < valor.length; i += 4) {
-                grupos.push(valor.substring(i, i + 4));
-            }
-            input.value = grupos.join(' ');
-        }
-
-        function formatarValidade(input) {
-            let valor = input.value.replace(/\D/g, '');
-            if (valor.length >= 2) {
-                valor = valor.slice(0, 2) + '/' + valor.slice(2, 4);
-            }
-            input.value = valor;
-        }
-
-        function validarCartao() {
-            const numeroCartao = document.getElementById('numeroCartao').value;
-            const nomeCartao = document.getElementById('nomeCartao').value;
-            const validade = document.getElementById('validade').value;
-            const cvv = document.getElementById('cvv').value;
-            const numeroLimpo = numeroCartao.replace(/\s/g, '');
-            
-            if (numeroLimpo.length !== 16) {
-                alert('Número do cartão deve ter 16 dígitos');
-                return false;
-            }
-            if (!nomeCartao || nomeCartao.length < 3) {
-                alert('Nome no cartão inválido');
-                return false;
-            }
-            if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(validade)) {
-                alert('Validade inválida. Use formato MM/AA');
-                return false;
-            }
-            const [mes, ano] = validade.split('/');
-            const anoCompleto = 2000 + parseInt(ano);
-            const dataValidade = new Date(anoCompleto, parseInt(mes) - 1);
-            if (dataValidade < new Date()) {
-                alert('Cartão expirado');
-                return false;
-            }
-            if (cvv.length !== 3) {
-                alert('CVV deve ter 3 dígitos');
-                return false;
-            }
-            return true;
-        }
-
+    
+        // Função para preparar uma reserva
         function prepararReserva() {
-            const cliente = document.getElementById('cliente').value;
-            const email = document.getElementById('email').value;
-            const telefone = document.getElementById('telefone').value;
-            const quartoId = document.getElementById('quartoId').value;
-            const checkIn = document.getElementById('checkIn').value;
-            const checkOut = document.getElementById('checkOut').value;
-
+            const cliente = document.getElementById('cliente')?.value.trim();
+            const email = document.getElementById('email')?.value.trim();
+            const telefone = document.getElementById('telefone')?.value.trim();
+            const quartoId = document.getElementById('quartoId')?.value;
+            const checkIn = document.getElementById('checkIn')?.value;
+            const checkOut = document.getElementById('checkOut')?.value;
+    
+            // Validação dos campos obrigatórios
             if (!cliente || !email || !telefone || !quartoId || !checkIn || !checkOut) {
                 alert('Preencha todos os campos!');
                 return;
             }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Email inválido');
-                return;
-            }
-
+    
+            // Verifica se o quarto existe
             const quarto = quartos.find(q => q.id === parseInt(quartoId));
-            const dias = calcularDias(checkIn, checkOut);
-            
-            if (dias <= 0) {
-                alert('Data de check-out deve ser posterior ao check-in');
+            if (!quarto) {
+                alert('Quarto inválido!');
                 return;
             }
-
-            const total = quarto.preco * dias;
-            reservaTemp = { quartoId: parseInt(quartoId), cliente, email, telefone, checkIn, checkOut, dias, total, quarto };
-            mostrarModal();
-            atualizarResumo();
-        }
-
-        function atualizarResumo() {
-            const resumoHtml = `
-                <div class="summary-item"><span>Cliente:</span><span style="font-weight: bold;">${reservaTemp.cliente}</span></div>
-                <div class="summary-item"><span>Quarto:</span><span style="font-weight: bold;">${reservaTemp.quarto.numero} - ${reservaTemp.quarto.tipo}</span></div>
-                <div class="summary-item"><span>Check-in:</span><span style="font-weight: bold;">${new Date(reservaTemp.checkIn).toLocaleDateString('pt-PT')}</span></div>
-                <div class="summary-item"><span>Check-out:</span><span style="font-weight: bold;">${new Date(reservaTemp.checkOut).toLocaleDateString('pt-PT')}</span></div>
-                <div class="summary-item"><span>Noites:</span><span style="font-weight: bold;">${reservaTemp.dias}</span></div>
-                <div class="summary-total"><span>Total:</span><span class="amount">€${reservaTemp.total}</span></div>
-            `;
-            document.getElementById('reservaSummary').innerHTML = resumoHtml;
-            const btnPagar = document.querySelector('.modal-buttons .btn-success');
-            if (btnPagar) btnPagar.innerHTML = `🔒 Pagar €${reservaTemp.total}`;
-        }
-
-        function mostrarModal() {
-            document.getElementById('paymentModal').classList.add('active');
-        }
-
-        function cancelPayment() {
-            document.getElementById('paymentModal').classList.remove('active');
-            reservaTemp = null;
-            document.getElementById('numeroCartao').value = '';
-            document.getElementById('nomeCartao').value = '';
-            document.getElementById('validade').value = '';
-            document.getElementById('cvv').value = '';
-        }
-
-        function processarPagamento() {
-            if (!validarCartao()) return;
-
-            const novaReserva = {
-                id: Date.now(),
-                ...reservaTemp,
-                pagamento: {
-                    ultimosDigitos: document.getElementById('numeroCartao').value.slice(-4),
-                    nomeCartao: document.getElementById('nomeCartao').value,
-                    dataPagamento: new Date().toISOString()
-                }
-            };
-
-            reservas.push(novaReserva);
-            document.getElementById('reservaForm').reset();
-            document.getElementById('numeroCartao').value = '';
-            document.getElementById('nomeCartao').value = '';
-            document.getElementById('validade').value = '';
-            document.getElementById('cvv').value = '';
-            cancelPayment();
-            alert('✅ Pagamento processado com sucesso!\nReserva confirmada!');
-            switchTab('reservas');
-        }
-
-        function cancelarReserva(id) {
-            const reserva = reservas.find(r => r.id === id);
-            if (confirm(`Cancelar reserva de ${reserva.cliente}?\nValor de €${reserva.total} será reembolsado.`)) {
-                reservas = reservas.filter(r => r.id !== id);
-                alert('Reserva cancelada! Reembolso será processado em 5-7 dias úteis.');
-                renderReservas();
+    
+            // Calcula o número de dias e o total
+            const dias = calcularDias(checkIn, checkOut);
+            if (dias <= 0) {
+                alert('A data de check-out deve ser posterior ao check-in!');
+                return;
             }
+    
+            const total = quarto.preco * dias;
+    
+            // Cria a reserva temporária
+            reservaTemp = { cliente, email, telefone, quarto, dias, total };
+            alert(`Reserva preparada para ${cliente}. Total: €${total}`);
         }
-
+    
+        // Função para renderizar os quartos na página
         function renderQuartos() {
             const grid = document.getElementById('quartosGrid');
-            grid.innerHTML = '';
+            if (!grid) {
+                console.error('Elemento "quartosGrid" não encontrado!');
+                return;
+            }
+    
+            grid.innerHTML = ''; // Limpa o conteúdo existente
             quartos.forEach(quarto => {
-                const reservado = reservas.some(r => r.quartoId === quarto.id);
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `
@@ -338,108 +218,34 @@
                     <div class="room-title">Quarto ${quarto.numero}</div>
                     <div class="room-type">${quarto.tipo}</div>
                     <div class="room-price">€${quarto.preco}/noite</div>
-                    <div class="room-status">
-                        <span class="status-badge ${reservado ? 'status-booked' : 'status-available'}">
-                            ${reservado ? '🔴 Ocupado' : '🟢 Disponível'}
-                        </span>
-                    </div>
                 `;
                 grid.appendChild(card);
             });
         }
-
-        function renderReservas() {
-            const lista = document.getElementById('reservasLista');
-            lista.innerHTML = '';
-
-            if (reservas.length === 0) {
-                lista.innerHTML = '<div class="empty-state">Nenhuma reserva encontrada</div>';
-                return;
-            }
-
-            reservas.forEach(reserva => {
-                const quarto = quartos.find(q => q.id === reserva.quartoId);
-                const div = document.createElement('div');
-                div.className = 'reservation-item';
-                div.innerHTML = `
-                    <div class="reservation-header">
-                        <div>
-                            <div class="reservation-name">${reserva.cliente}</div>
-                            <div class="reservation-email">${reserva.email}</div>
-                            <div class="reservation-room">Quarto ${quarto.numero} - ${quarto.tipo}</div>
-                        </div>
-                        <button class="btn btn-danger" onclick="cancelarReserva(${reserva.id})" title="Cancelar e reembolsar">✕</button>
-                    </div>
-                    <div class="reservation-dates">📅 ${new Date(reserva.checkIn).toLocaleDateString('pt-PT')} → ${new Date(reserva.checkOut).toLocaleDateString('pt-PT')}</div>
-                    <div class="reservation-dates">🛏️ ${reserva.dias} noite${reserva.dias > 1 ? 's' : ''}</div>
-                    <div class="reservation-footer">
-                        <div>💳 •••• ${reserva.pagamento.ultimosDigitos}</div>
-                        <div class="reservation-price">€${reserva.total}</div>
-                    </div>
-                `;
-                lista.appendChild(div);
-            });
-
-            const select = document.getElementById('quartoId');
-            select.innerHTML = '<option value="">Selecione um quarto</option>';
-            quartos.forEach(q => {
-                const option = document.createElement('option');
-                option.value = q.id;
-                option.textContent = `Quarto ${q.numero} - ${q.tipo} (€${q.preco}/noite)`;
-                select.appendChild(option);
-            });
-        }
-
-        function calcularEstatisticas() {
-            const totalFaturado = reservas.reduce((acc, r) => acc + r.total, 0);
-            const totalDias = reservas.reduce((acc, r) => acc + r.dias, 0);
-            const faturacaoPorMes = {};
-            reservas.forEach(r => {
-                const mes = new Date(r.checkIn).getMonth();
-                faturacaoPorMes[mes] = (faturacaoPorMes[mes] || 0) + r.total;
-            });
-            return { totalFaturado, totalDias, faturacaoPorMes };
-        }
-
-        function renderDashboard() {
-            const stats = calcularEstatisticas();
-            const statsGrid = document.getElementById('statsGrid');
-            statsGrid.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-icon indigo">💰</div>
-                    <div><div class="stat-label">Total Faturado</div><div class="stat-value">€${stats.totalFaturado}</div></div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon green">📅</div>
-                    <div><div class="stat-label">Dias Reservados</div><div class="stat-value">${stats.totalDias}</div></div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon purple">👥</div>
-                    <div><div class="stat-label">Total Reservas</div><div class="stat-value">${reservas.length}</div></div>
-                </div>
-            `;
-
-            const chart = document.getElementById('faturacaoChart');
-            chart.innerHTML = '';
-            const maxValor = Math.max(...Object.values(stats.faturacaoPorMes), 1);
-            
-            meses.forEach((mes, index) => {
-                const valor = stats.faturacaoPorMes[index] || 0;
-                const altura = (valor / maxValor) * 100;
-                const barDiv = document.createElement('div');
-                barDiv.className = 'bar';
-                barDiv.style.height = altura > 0 ? `${altura}%` : '20px';
-                barDiv.title = `€${valor}`;
-                barDiv.innerHTML = `<div class="bar-label">${mes}</div><div class="bar-value">€${valor}</div>`;
-                chart.appendChild(barDiv);
-            });
-        }
-
+    
+        // Evento para carregar os quartos ao carregar a página
         document.addEventListener('DOMContentLoaded', function() {
             renderQuartos();
-            renderReservas();
-            renderDashboard();
         });
+
+
+
+
+
+        const originalMenu = document.querySelector('.header_baixo_menu');
+const cloneMenu = document.querySelector('.header_baixo_menu.clone');
+const menuOffset = originalMenu.offsetTop;
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > menuOffset) {
+        cloneMenu.classList.add('show');
+    } else {
+        cloneMenu.classList.remove('show');
+    }
+});
+
+
+
     </script>
 </body>
 </html>
