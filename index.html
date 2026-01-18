@@ -122,6 +122,9 @@
                 <!-- Lista de Reservas -->
                 <div class="card">
                     <h2>✅ Reservas Confirmadas</h2>
+                    <button class="btn btn-primary" onclick="confirmarReserva()">Confirmar Reserva</button>
+
+                    <div id="reservasConfirmadas"></div>
                     <div class="reservations-list" id="reservasLista"></div>
                 </div>
             </div>
@@ -131,121 +134,12 @@
         <div id="dashboard">
             <h1>Dashboard de Gestão</h1>
             <div class="stats-grid" id="statsGrid"></div>
-            <div class="chart-container">
-                <h3 class="chart-title">📈 Faturação Mensal 2025</h3>
-                <div class="chart" id="faturacaoChart"></div>
             </div>
         </div>
     </div>
 
-    <script>
-        // Dados de exemplo para os quartos
-        const quartos = [
-            { id: 1, numero: '101', tipo: 'Single', preco: 50, imagem: '🛏️' },
-            { id: 2, numero: '102', tipo: 'Duplo', preco: 80, imagem: '🛏️🛏️' },
-            { id: 3, numero: '103', tipo: 'Suite', preco: 150, imagem: '👑' },
-            { id: 4, numero: '104', tipo: 'Single', preco: 50, imagem: '🛏️' },
-            { id: 5, numero: '105', tipo: 'Duplo', preco: 80, imagem: '🛏️🛏️' },
-            { id: 6, numero: '106', tipo: 'Suite', preco: 150, imagem: '👑' }
-        ];
     
-        let reservaTemp = null;
-    
-        // Função para calcular o número de dias entre duas datas
-        function calcularDias(checkIn, checkOut) {
-            const date1 = new Date(checkIn);
-            const date2 = new Date(checkOut);
-    
-            if (isNaN(date1) || isNaN(date2)) {
-                alert('Datas inválidas!');
-                return 0;
-            }
-    
-            const diff = Math.abs(date2 - date1);
-            return Math.ceil(diff / (1000 * 60 * 60 * 24));
-        }
-    
-        // Função para preparar uma reserva
-        function prepararReserva() {
-            const cliente = document.getElementById('cliente')?.value.trim();
-            const email = document.getElementById('email')?.value.trim();
-            const telefone = document.getElementById('telefone')?.value.trim();
-            const quartoId = document.getElementById('quartoId')?.value;
-            const checkIn = document.getElementById('checkIn')?.value;
-            const checkOut = document.getElementById('checkOut')?.value;
-    
-            // Validação dos campos obrigatórios
-            if (!cliente || !email || !telefone || !quartoId || !checkIn || !checkOut) {
-                alert('Preencha todos os campos!');
-                return;
-            }
-    
-            // Verifica se o quarto existe
-            const quarto = quartos.find(q => q.id === parseInt(quartoId));
-            if (!quarto) {
-                alert('Quarto inválido!');
-                return;
-            }
-    
-            // Calcula o número de dias e o total
-            const dias = calcularDias(checkIn, checkOut);
-            if (dias <= 0) {
-                alert('A data de check-out deve ser posterior ao check-in!');
-                return;
-            }
-    
-            const total = quarto.preco * dias;
-    
-            // Cria a reserva temporária
-            reservaTemp = { cliente, email, telefone, quarto, dias, total };
-            alert(`Reserva preparada para ${cliente}. Total: €${total}`);
-        }
-    
-        // Função para renderizar os quartos na página
-        function renderQuartos() {
-            const grid = document.getElementById('quartosGrid');
-            if (!grid) {
-                console.error('Elemento "quartosGrid" não encontrado!');
-                return;
-            }
-    
-            grid.innerHTML = ''; // Limpa o conteúdo existente
-            quartos.forEach(quarto => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <div class="room-image">${quarto.imagem}</div>
-                    <div class="room-title">Quarto ${quarto.numero}</div>
-                    <div class="room-type">${quarto.tipo}</div>
-                    <div class="room-price">€${quarto.preco}/noite</div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-    
-        // Evento para carregar os quartos ao carregar a página
-        document.addEventListener('DOMContentLoaded', function() {
-            renderQuartos();
-        });
+    <script src="index.js"></script>
 
-
-
-
-
-        const originalMenu = document.querySelector('.header_baixo_menu');
-const cloneMenu = document.querySelector('.header_baixo_menu.clone');
-const menuOffset = originalMenu.offsetTop;
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > menuOffset) {
-        cloneMenu.classList.add('show');
-    } else {
-        cloneMenu.classList.remove('show');
-    }
-});
-
-
-
-    </script>
 </body>
 </html>
