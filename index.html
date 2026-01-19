@@ -52,26 +52,48 @@
             <div class="tab-content">
                 <!-- Lado esquerdo: texto -->
                 <div class="tab-left">
-                    <h1>Hotel Ectecephala</h1>
-                    <p>O Hotel Ectecephala é um sítio fixe para ficar hospedado. Tem quartos, camas e algumas janelas. Podes dormir à noite e acordar de manhã. O pequeno-almoço tem pão, café e às vezes fruta. Há umas cadeiras no hall e um sítio para ver televisão.</p>
+                    <h1 class="text">Hotel Ectecephala</h1>
+                    <p class="text">O Hotel Ectecephala é um sítio fixe para ficar hospedado. Tem quartos, camas e algumas janelas. Podes dormir à noite e acordar de manhã. O pequeno-almoço tem pão, café e às vezes fruta. Há umas cadeiras no hall e um sítio para ver televisão.</p>
 
-                    <p>As pessoas que trabalham no hotel são simpáticas, dizem bom dia e ajudam quando pedes. Sempre que precisas de alguma coisa, eles tentam resolver, mesmo que seja só para dar uma toalha extra ou indicar um bom sítio para comer. O ambiente é calmo e agradável, e o barulho da cidade não chega muito aos quartos.</p>
+                    <p class="text">As pessoas que trabalham no hotel são simpáticas, dizem bom dia e ajudam quando pedes. Sempre que precisas de alguma coisa, eles tentam resolver, mesmo que seja só para dar uma toalha extra ou indicar um bom sítio para comer. O ambiente é calmo e agradável, e o barulho da cidade não chega muito aos quartos.</p>
 
-                    <p>Dá para passear pela cidade e depois voltar ao hotel para descansar. Há sítios perto para caminhar, lojas e alguns cafés onde podes sentar-te e apreciar a vista. Os corredores do hotel são limpos e têm quadros e algumas plantas para decorar, tornando o espaço mais acolhedor.</p>
+                    <p class="text">Dá para passear pela cidade e depois voltar ao hotel para descansar. Há sítios perto para caminhar, lojas e alguns cafés onde podes sentar-te e apreciar a vista. Os corredores do hotel são limpos e têm quadros e algumas plantas para decorar, tornando o espaço mais acolhedor.</p>
 
-                    <p>No geral, o Ectecephala é um hotel jeitoso, com quartos e casas de banho, e consegues dormir à vontade. Mesmo para quem gosta de uma estadia simples e tranquila, o hotel cumpre bem. É um lugar prático, sem complicações, ideal para quem quer explorar a cidade durante o dia e ter um sítio confortável para descansar à noite.</p>
+                    <p class="text">No geral, o Ectecephala é um hotel jeitoso, com quartos e casas de banho, e consegues dormir à vontade. Mesmo para quem gosta de uma estadia simples e tranquila, o hotel cumpre bem. É um lugar prático, sem complicações, ideal para quem quer explorar a cidade durante o dia e ter um sítio confortável para descansar à noite.</p>
 
                 </div>
     
                 <!-- Lado direito: contacto -->
                 <div class="tab-right">
-                    <h2>Contacte-nos</h2>
-                    <p>📞 Telefone: (+351) 123 456 789</p>
-                    <p>✉️ Email: email@gmail.com</p>
-                    <p>📍 Morada: Rua do Hotel, 123, Cidade</p>
+                    <h2 class="text">Contacte-nos</h2>
+                    <p class="text"> Telefone: (+351) 123 456 789</p>
+                    <p class="text"> Email: email@gmail.com</p>
+                    <p class="text"> Morada: Rua do Hotel, 123, Cidade</p>
                 </div>
             </div>
         </div>
+
+        
+
+
+
+
+<div class="carousel-container" onmouseenter="showButtons(true)" onmouseleave="showButtons(false)">
+    <div id="carousel" class="carousel">
+        <!-- O JS vai preencher isto -->
+    </div>
+    
+    <button class="nav-btn prev" onclick="manualMove(-1)">&#10094;</button>
+    <button class="nav-btn next" onclick="manualMove(1)">&#10095;</button>
+</div>
+
+
+
+
+
+
+
+
 
         <!-- Quartos -->
         <div id="quartos">

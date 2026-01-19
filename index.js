@@ -1,31 +1,90 @@
-  // Dados de exemplo para os quartos
-  const quartos = [
+const quartos = [
     { id: 1, numero: '101', tipo: 'Single', preco: 50, imagem: 'IMG/transferir (1).jpg' },
     { id: 2, numero: '102', tipo: 'Duplo', preco: 80, imagem: 'IMG/pexels-quang-nguyen-vinh-222549-29000012.jpg' },
-    { id: 3, numero: '103', tipo: 'Suite', preco: 150, imagem: 'IMG/pexels-didi-lecatompessy-2149441489-33125906.jpg' },
-    
+    { id: 3, numero: '103', tipo: 'Suite', preco: 150, imagem: 'IMG/pexels-didi-lecatompessy-2149441489-33125906.jpg' }
 ];
 
-let reservaTemp = null;
+const carousel = document.getElementById('carousel');
+let index = 1; // Começamos no 1 por causa do clone
+let autoPlayInterval;
 
-const reservasConfirmadas = [];
+function initCarousel() {
+    // 1. Clonar primeiro e último para o efeito infinito
+    const firstClone = createCard(quartos[0]);
+    const lastClone = createCard(quartos[quartos.length - 1]);
 
-function preencherSelectQuartos() {
-    const select = document.getElementById('quartoId');
-    if (!select) {
-        console.error('Select quartoId não encontrado');
-        return;
-    }
+    // 2. Inserir no DOM
+    carousel.innerHTML = lastClone + quartos.map(q => createCard(q)).join('') + firstClone;
 
-    select.innerHTML = '<option value="">Selecione um quarto</option>';
-
-    quartos.forEach(quarto => {
-        const option = document.createElement('option');
-        option.value = quarto.id;
-        option.textContent = `Quarto ${quarto.numero} - ${quarto.tipo} (€${quarto.preco}/noite)`;
-        select.appendChild(option);
-    });
+    // 3. Posicionar no slide real inicial
+    updatePosition(false);
+    startAutoPlay();
 }
+
+function createCard(q) {
+    return `
+        <div class="card-quarto">
+            <img src="${q.imagem}">
+            <h3>Quarto ${q.numero} - ${q.tipo}</h3>
+            <p>${q.preco}€ / noite</p>
+        </div>`;
+}
+
+function updatePosition(animate = true) {
+    carousel.style.transition = animate ? "transform 0.5s ease-in-out" : "none";
+    carousel.style.transform = `translateX(${-index * 100}%)`;
+}
+
+function moveSlide(step) {
+    index += step;
+    updatePosition();
+
+    // Lógica para o Loop Infinito (Teletransporte sem animação)
+    carousel.addEventListener('transitionend', () => {
+        if (index >= quartos.length + 1) {
+            index = 1;
+            updatePosition(false);
+        }
+        if (index <= 0) {
+            index = quartos.length;
+            updatePosition(false);
+        }
+    }, { once: true });
+}
+
+// Controlos Automáticos
+function startAutoPlay() {
+    autoPlayInterval = setInterval(() => moveSlide(1), 3000); // 3 segundos
+}
+
+function manualMove(step) {
+    clearInterval(autoPlayInterval); // Para o auto-play quando o user clica
+    moveSlide(step);
+    startAutoPlay(); // Reinicia o timer
+}
+
+initCarousel()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Função para calcular o número de dias entre duas datas
