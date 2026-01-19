@@ -166,6 +166,20 @@ document.addEventListener('DOMContentLoaded', function() {
     renderQuartos();
 });
 
+function preencherSelectQuartos() {
+    const select = document.getElementById('quartoId');
+    if (!select) return;
+
+    // limpa opções antigas (exceto a primeira)
+    select.innerHTML = '<option value="">Selecione um quarto</option>';
+
+    quartos.forEach(quarto => {
+        const option = document.createElement('option');
+        option.value = quarto.id;
+        option.textContent = `Quarto ${quarto.numero} - ${quarto.tipo} (€${quarto.preco}/noite)`;
+        select.appendChild(option);
+    });
+}
 
 
 
