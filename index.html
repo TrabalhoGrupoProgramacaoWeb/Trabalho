@@ -6,46 +6,34 @@
     <title>Hotel Management System 2025</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<header class="header_principal">
-    <div class="header_cima">
-        <h1>(+351) 123 456 789 | email@gmail.com</h1>
-    </div>
-    <div class="header_baixo_logo">
-        <img src="IMG/LOGO Branco.png" alt="Hotel Logo" class="logo">
-    </div>
-    <div class="header_baixo_menu original">
+<body>
+    <header class="header_principal">
+        <div class="header_cima">
+            <h1>(+351) 123 456 789 | email@gmail.com</h1>
+        </div>
+        <div class="header_baixo_logo">
+            <img src="IMG/LOGO Branco.png" alt="Hotel Logo" class="logo">
+        </div>
+        <div class="header_baixo_menu header_baixo_menu_original">
+            <div class="nav-tabs">
+                <a href="#principal" class="nav-btn">Página Principal</a>
+                <a href="#quartos" class="nav-btn">Quartos</a>
+                <a href="#reservas" class="nav-btn">Reservas</a>
+                <a href="#dashboard" class="nav-btn">Dashboard</a>
+            </div> 
+        </div>
+    </header>
+
+    <!-- Clone do menu sticky -->
+    <div class="header_baixo_menu clone">
         <div class="nav-tabs">
-            <a href="#principal" class="nav-btn">Página Principal</a>
+            <a class="text" href="#principal" class="nav-btn">Página Principal</a>
             <a href="#quartos" class="nav-btn">Quartos</a>
             <a href="#reservas" class="nav-btn">Reservas</a>
             <a href="#dashboard" class="nav-btn">Dashboard</a>
         </div>
     </div>
-</header>
 
-<!-- Clone do menu sticky -->
-<div class="header_baixo_menu clone">
-    <div class="nav-tabs">
-        <a href="#principal" class="nav-btn">Página Principal</a>
-        <a href="#quartos" class="nav-btn">Quartos</a>
-        <a href="#reservas" class="nav-btn">Reservas</a>
-        <a href="#dashboard" class="nav-btn">Dashboard</a>
-    </div>
-</div>
-
-</header>
-
-<!-- Navbar clone, invisível inicialmente -->
-<div class="header_baixo_menu clone">
-    <div class="nav-tabs">
-        <a href="#principal" class="nav-btn">Página Principal</a>
-        <a href="#quartos" class="nav-btn">Quartos</a>
-        <a href="#reservas" class="nav-btn">Reservas</a>
-        <a href="#dashboard" class="nav-btn">Dashboard</a>
-    </div>
-</div>
-
-<body>
     <div class="container">
         <!-- Página Principal -->
         <div class="tab-principal" id="principal">
@@ -53,86 +41,68 @@
                 <!-- Lado esquerdo: texto -->
                 <div class="tab-left">
                     <h1 class="text">Hotel Ectecephala</h1>
-                    <p class="text">O Hotel Ectecephala é um sítio fixe para ficar hospedado. Tem quartos, camas e algumas janelas. Podes dormir à noite e acordar de manhã. O pequeno-almoço tem pão, café e às vezes fruta. Há umas cadeiras no hall e um sítio para ver televisão.</p>
+                    <p class="text" >O Hotel Ectecephala é um sítio bom para ficar hospedado. Tem quartos, camas e algumas janelas. Podes dormir à noite e acordar de manhã. O pequeno-almoço tem pão, café e às vezes fruta. Há umas cadeiras no hall e um sítio para ver televisão.</p>
 
                     <p class="text">As pessoas que trabalham no hotel são simpáticas, dizem bom dia e ajudam quando pedes. Sempre que precisas de alguma coisa, eles tentam resolver, mesmo que seja só para dar uma toalha extra ou indicar um bom sítio para comer. O ambiente é calmo e agradável, e o barulho da cidade não chega muito aos quartos.</p>
 
                     <p class="text">Dá para passear pela cidade e depois voltar ao hotel para descansar. Há sítios perto para caminhar, lojas e alguns cafés onde podes sentar-te e apreciar a vista. Os corredores do hotel são limpos e têm quadros e algumas plantas para decorar, tornando o espaço mais acolhedor.</p>
 
                     <p class="text">No geral, o Ectecephala é um hotel jeitoso, com quartos e casas de banho, e consegues dormir à vontade. Mesmo para quem gosta de uma estadia simples e tranquila, o hotel cumpre bem. É um lugar prático, sem complicações, ideal para quem quer explorar a cidade durante o dia e ter um sítio confortável para descansar à noite.</p>
-
                 </div>
     
                 <!-- Lado direito: contacto -->
                 <div class="tab-right">
                     <h2 class="text">Contacte-nos</h2>
-                    <p class="text"> Telefone: (+351) 123 456 789</p>
-                    <p class="text"> Email: email@gmail.com</p>
-                    <p class="text"> Morada: Rua do Hotel, 123, Cidade</p>
+                    <p class="text">Telefone: (+351) 123 456 789</p>
+                    <p class="text">Email: email@gmail.com</p>
+                    <p class="text">Morada: Rua do Hotel, 123, Cidade</p>
                 </div>
             </div>
         </div>
 
-        
-
-
-
-
-<div class="carousel-container" onmouseenter="showButtons(true)" onmouseleave="showButtons(false)">
-    <div id="carousel" class="carousel">
-        <!-- O JS vai preencher isto -->
-    </div>
-    
-    <button class="nav-btn prev" onclick="manualMove(-1)">&#10094;</button>
-    <button class="nav-btn next" onclick="manualMove(1)">&#10095;</button>
-</div>
-
-
-
-
-
-
-
-
-
         <!-- Quartos -->
         <div id="quartos">
             <h1>Lista de Quartos</h1>
+            <div class="carousel-container">
+                <button class="nav-btn prev" onclick="manualMove(-1)">‹</button>
+                <div class="carousel" id="carousel"></div>
+                <button class="nav-btn next" onclick="manualMove(1)">›</button>
+            </div>
             <div class="grid grid-cols-3" id="quartosGrid"></div>
         </div>
 
         <!-- Reservas -->
         <div id="reservas">
-            <h1>Reservas</h1>
+            <h1 class="text">Reservas</h1>
             <div class="grid grid-cols-2">
                 <!-- Nova Reserva -->
                 <div class="card">
-                    <h2>➕ Nova Reserva</h2>
+                    <h2 class="text">Nova Reserva</h2>
                     <form id="reservaForm">
-                        <div class="form-group">
-                            <label>Nome Completo</label>
+                        <div class="form-group" >
+                            <label class="text">Nome Completo</label>
                             <input type="text" id="cliente" placeholder="Ex: João Silva" required>
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
+                            <label class="text">Email</label>
                             <input type="email" id="email" placeholder="joao@email.com" required>
                         </div>
                         <div class="form-group">
-                            <label>Telefone</label>
+                            <label class="text">Telefone</label>
                             <input type="tel" id="telefone" placeholder="+351 912 345 678" required>
                         </div>
                         <div class="form-group">
-                            <label>Quarto</label>
+                            <label class="text">Quarto</label>
                             <select id="quartoId" required>
                                 <option value="">Selecione um quarto</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Check-in</label>
+                            <label class="text">Check-in</label>
                             <input type="date" id="checkIn" min="2025-01-01" max="2025-12-31" required>
                         </div>
                         <div class="form-group">
-                            <label>Check-out</label>
+                            <label class="text">Check-out</label>
                             <input type="date" id="checkOut" min="2025-01-01" max="2025-12-31" required>
                         </div>
                         <button type="button" class="btn btn-primary" onclick="prepararReserva()">
@@ -143,11 +113,9 @@
 
                 <!-- Lista de Reservas -->
                 <div class="card">
-                    <h2>✅ Reservas Confirmadas</h2>
+                    <h2 class="text"> Reservas Confirmadas</h2>
                     <button class="btn btn-primary" onclick="confirmarReserva()">Confirmar Reserva</button>
-
                     <div id="reservasConfirmadas"></div>
-                    <div class="reservations-list" id="reservasLista"></div>
                 </div>
             </div>
         </div>
@@ -156,12 +124,9 @@
         <div id="dashboard">
             <h1>Dashboard de Gestão</h1>
             <div class="stats-grid" id="statsGrid"></div>
-            </div>
         </div>
     </div>
 
-    
     <script src="index.js"></script>
-
 </body>
 </html>
